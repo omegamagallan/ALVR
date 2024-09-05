@@ -82,7 +82,7 @@ pub enum AlvrHandType {
 #[repr(C)]
 pub union AlvrButtonValue {
     pub scalar: bool,
-    pub float: f32,
+    pub floatp: f32,
 }
 
 // the profile is implied
@@ -420,7 +420,7 @@ pub unsafe extern "C" fn alvr_get_buttons(out_entries: *mut AlvrButtonEntry) -> 
             out_entry.id = entry.path_id;
             match entry.value {
                 ButtonValue::Binary(value) => out_entry.value.scalar = value,
-                ButtonValue::Scalar(value) => out_entry.value.float = value,
+                ButtonValue::Scalar(value) => out_entry.value.floatp = value,
             }
         }
 
