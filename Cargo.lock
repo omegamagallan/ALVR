@@ -180,11 +180,7 @@ dependencies = [
 
 [[package]]
 name = "alvr_adb"
-<<<<<<< HEAD
 version = "21.0.0-dev11"
-=======
-version = "21.0.0-dev02"
->>>>>>> a812d84b (tracking rewrite (4): update protocol; bump to 20.0.0-dev02)
 dependencies = [
  "alvr_common",
  "alvr_filesystem",
@@ -197,11 +193,7 @@ dependencies = [
 
 [[package]]
 name = "alvr_audio"
-<<<<<<< HEAD
 version = "21.0.0-dev11"
-=======
-version = "21.0.0-dev02"
->>>>>>> a812d84b (tracking rewrite (4): update protocol; bump to 20.0.0-dev02)
 dependencies = [
  "alvr_common",
  "alvr_session",
@@ -217,11 +209,7 @@ dependencies = [
 
 [[package]]
 name = "alvr_client_core"
-<<<<<<< HEAD
 version = "21.0.0-dev11"
-=======
-version = "21.0.0-dev02"
->>>>>>> a812d84b (tracking rewrite (4): update protocol; bump to 20.0.0-dev02)
 dependencies = [
  "alvr_audio",
  "alvr_common",
@@ -243,24 +231,7 @@ dependencies = [
 
 [[package]]
 name = "alvr_client_mock"
-<<<<<<< HEAD
 version = "21.0.0-dev11"
-=======
-version = "21.0.0-dev02"
-dependencies = [
- "alvr_client_core",
- "alvr_common",
- "alvr_packets",
- "alvr_session",
- "eframe",
- "env_logger",
- "rand",
-]
-
-[[package]]
-name = "alvr_client_openxr"
-version = "21.0.0-dev02"
->>>>>>> a812d84b (tracking rewrite (4): update protocol; bump to 20.0.0-dev02)
 dependencies = [
  "alvr_client_core",
  "alvr_common",
@@ -291,11 +262,7 @@ dependencies = [
 
 [[package]]
 name = "alvr_common"
-<<<<<<< HEAD
 version = "21.0.0-dev11"
-=======
-version = "21.0.0-dev02"
->>>>>>> a812d84b (tracking rewrite (4): update protocol; bump to 20.0.0-dev02)
 dependencies = [
  "anyhow",
  "backtrace",
@@ -310,11 +277,7 @@ dependencies = [
 
 [[package]]
 name = "alvr_dashboard"
-<<<<<<< HEAD
 version = "21.0.0-dev11"
-=======
-version = "21.0.0-dev02"
->>>>>>> a812d84b (tracking rewrite (4): update protocol; bump to 20.0.0-dev02)
 dependencies = [
  "alvr_adb",
  "alvr_audio",
@@ -346,11 +309,7 @@ dependencies = [
 
 [[package]]
 name = "alvr_events"
-<<<<<<< HEAD
 version = "21.0.0-dev11"
-=======
-version = "21.0.0-dev02"
->>>>>>> a812d84b (tracking rewrite (4): update protocol; bump to 20.0.0-dev02)
 dependencies = [
  "alvr_common",
  "alvr_packets",
@@ -361,11 +320,7 @@ dependencies = [
 
 [[package]]
 name = "alvr_filesystem"
-<<<<<<< HEAD
 version = "21.0.0-dev11"
-=======
-version = "21.0.0-dev02"
->>>>>>> a812d84b (tracking rewrite (4): update protocol; bump to 20.0.0-dev02)
 dependencies = [
  "dirs",
 ]
@@ -385,11 +340,7 @@ dependencies = [
 
 [[package]]
 name = "alvr_gui_common"
-<<<<<<< HEAD
 version = "21.0.0-dev11"
-=======
-version = "21.0.0-dev02"
->>>>>>> a812d84b (tracking rewrite (4): update protocol; bump to 20.0.0-dev02)
 dependencies = [
  "alvr_common",
  "egui",
@@ -397,11 +348,7 @@ dependencies = [
 
 [[package]]
 name = "alvr_launcher"
-<<<<<<< HEAD
 version = "21.0.0-dev11"
-=======
-version = "21.0.0-dev02"
->>>>>>> a812d84b (tracking rewrite (4): update protocol; bump to 20.0.0-dev02)
 dependencies = [
  "alvr_adb",
  "alvr_common",
@@ -424,11 +371,7 @@ dependencies = [
 
 [[package]]
 name = "alvr_packets"
-<<<<<<< HEAD
 version = "21.0.0-dev11"
-=======
-version = "21.0.0-dev02"
->>>>>>> a812d84b (tracking rewrite (4): update protocol; bump to 20.0.0-dev02)
 dependencies = [
  "alvr_common",
  "alvr_session",
@@ -438,11 +381,7 @@ dependencies = [
 
 [[package]]
 name = "alvr_server_core"
-<<<<<<< HEAD
 version = "21.0.0-dev11"
-=======
-version = "21.0.0-dev02"
->>>>>>> a812d84b (tracking rewrite (4): update protocol; bump to 20.0.0-dev02)
 dependencies = [
  "alvr_adb",
  "alvr_audio",
@@ -471,11 +410,7 @@ dependencies = [
 
 [[package]]
 name = "alvr_server_io"
-<<<<<<< HEAD
 version = "21.0.0-dev11"
-=======
-version = "21.0.0-dev02"
->>>>>>> a812d84b (tracking rewrite (4): update protocol; bump to 20.0.0-dev02)
 dependencies = [
  "alvr_common",
  "alvr_events",
@@ -490,11 +425,7 @@ dependencies = [
 
 [[package]]
 name = "alvr_server_openvr"
-<<<<<<< HEAD
 version = "21.0.0-dev11"
-=======
-version = "21.0.0-dev02"
->>>>>>> a812d84b (tracking rewrite (4): update protocol; bump to 20.0.0-dev02)
 dependencies = [
  "alvr_common",
  "alvr_filesystem",
@@ -512,11 +443,7 @@ dependencies = [
 
 [[package]]
 name = "alvr_session"
-<<<<<<< HEAD
 version = "21.0.0-dev11"
-=======
-version = "21.0.0-dev02"
->>>>>>> a812d84b (tracking rewrite (4): update protocol; bump to 20.0.0-dev02)
 dependencies = [
  "alvr_common",
  "alvr_filesystem",
@@ -530,11 +457,7 @@ dependencies = [
 
 [[package]]
 name = "alvr_sockets"
-<<<<<<< HEAD
 version = "21.0.0-dev11"
-=======
-version = "21.0.0-dev02"
->>>>>>> a812d84b (tracking rewrite (4): update protocol; bump to 20.0.0-dev02)
 dependencies = [
  "alvr_common",
  "alvr_session",
@@ -547,11 +470,7 @@ dependencies = [
 
 [[package]]
 name = "alvr_system_info"
-<<<<<<< HEAD
 version = "21.0.0-dev11"
-=======
-version = "21.0.0-dev02"
->>>>>>> a812d84b (tracking rewrite (4): update protocol; bump to 20.0.0-dev02)
 dependencies = [
  "alvr_common",
  "jni",
@@ -564,42 +483,8 @@ dependencies = [
 ]
 
 [[package]]
-name = "alvr_vrcompositor_wrapper"
-<<<<<<< HEAD
-version = "21.0.0-dev11"
-=======
-version = "21.0.0-dev02"
->>>>>>> a812d84b (tracking rewrite (4): update protocol; bump to 20.0.0-dev02)
-dependencies = [
- "alvr_common",
- "alvr_filesystem",
- "exec",
- "xshell",
-]
-
-[[package]]
-name = "alvr_vulkan_layer"
-<<<<<<< HEAD
-version = "21.0.0-dev11"
-=======
-version = "21.0.0-dev02"
->>>>>>> a812d84b (tracking rewrite (4): update protocol; bump to 20.0.0-dev02)
-dependencies = [
- "alvr_common",
- "alvr_filesystem",
- "bindgen 0.72.1",
- "cc",
- "pkg-config",
- "walkdir",
-]
-
-[[package]]
 name = "alvr_xtask"
-<<<<<<< HEAD
 version = "21.0.0-dev11"
-=======
-version = "21.0.0-dev02"
->>>>>>> a812d84b (tracking rewrite (4): update protocol; bump to 20.0.0-dev02)
 dependencies = [
  "alvr_filesystem",
  "pico-args",
@@ -2094,16 +1979,6 @@ checksum = "39cab71617ae0d63f51a36d69f866391735b51691dbda63cf6f96d042b63efeb"
 dependencies = [
  "libc",
  "windows-sys 0.61.2",
-]
-
-[[package]]
-name = "errno-dragonfly"
-version = "0.1.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "aa68f1b12764fab894d2755d2518754e71b4fd80ecfb822714a1206c2aab39bf"
-dependencies = [
- "cc",
- "libc",
 ]
 
 [[package]]
