@@ -1284,6 +1284,13 @@ Tilted: the world gets tilted when long pressing the oculus button. This is usef
     #[schema(flag = "steamvr-restart")]
     pub enable_vive_tracker_proxy: bool,
 
+    #[schema(flag = "steamvr-restart")]
+    #[schema(strings(
+        display_name = "Headset tracking source override",
+        help = "Override headset tracking with a SteamVR tracked device (e.g., Vive tracker). Enter the device's serial number from SteamVR. Leave empty to use headset tracking."
+    ))]
+    pub head_tracking_override_device_serial: String,
+
     pub face_tracking: Switch<FaceTrackingConfig>,
 
     #[schema(flag = "steamvr-restart")]
@@ -1926,6 +1933,7 @@ pub fn session_settings_default() -> SettingsDefault {
             extra_openvr_props: default_custom_openvr_props.clone(),
             tracking_ref_only: false,
             enable_vive_tracker_proxy: false,
+            head_tracking_override_device_serial: String::new(),
             face_tracking: SwitchDefault {
                 enabled: false,
                 content: FaceTrackingConfigDefault {

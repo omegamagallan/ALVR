@@ -110,6 +110,8 @@ void Settings::Load() {
         m_enableLinuxVulkanAsyncCompute = config.get("linux_async_compute").get<bool>();
         m_enableLinuxAsyncReprojection = config.get("linux_async_reprojection").get<bool>();
 
+        m_headTrackingOverrideDeviceSerial = config.get("head_tracking_override_device_serial").get<std::string>();
+
         m_enableControllers = config.get("controllers_enabled").get<bool>();
         m_controllerIsTracker = config.get("controller_is_tracker").get<bool>();
 

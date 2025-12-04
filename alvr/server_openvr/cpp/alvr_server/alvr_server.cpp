@@ -385,6 +385,13 @@ void RequestIDR() {
     }
 }
 
+// Static storage for tracking override
+static struct {
+    std::string targetSerial;
+    TrackedDevice* overrideDevice = nullptr;
+    bool loggedWarning = false;
+} s_trackingOverride;
+
 void SetTracking(
     unsigned long long targetTimestampNs,
     float controllerPoseTimeOffsetS,
@@ -395,7 +402,62 @@ void SetTracking(
     int bodyTrackerMotionCount
 ) {
     if (g_driver_provider.hmd) {
-        g_driver_provider.hmd->OnPoseUpdated(targetTimestampNs, headMotion);
+        FfiDeviceMotion effectiveHeadMotion = headMotion;
+
+        const std::string& targetSerial = Settings::Instance().m_headTrackingOverrideDeviceSerial;
+        if (!targetSerial.empty()) {
+            if (s_trackingOverride.targetSerial != targetSerial) {
+                s_trackingOverride.targetSerial = targetSerial;
+                s_trackingOverride.overrideDevice = nullptr;
+                s_trackingOverride.loggedWarning = false;
+                
+                for (const auto& pair : g_driver_provider.tracked_devices) {
+                    auto serial = pair.second->get_serial_number();
+                    if (serial == targetSerial) {
+                        s_trackingOverride.overrideDevice = pair.second;
+                        Info("Headset tracking override enabled: using device '%s'\n", serial.c_str());
+                        break;
+                    }
+                }
+                
+                if (!s_trackingOverride.overrideDevice) {
+                    Warn("Headset tracking override device '%s' not found\n", targetSerial.c_str());
+                }
+            }
+
+            if (s_trackingOverride.overrideDevice && 
+                s_trackingOverride.overrideDevice->last_pose.poseIsValid) {
+                
+                auto& pose = s_trackingOverride.overrideDevice->last_pose;
+                
+                effectiveHeadMotion.pose.orientation.w = pose.qRotation.w;
+                effectiveHeadMotion.pose.orientation.x = pose.qRotation.x;
+                effectiveHeadMotion.pose.orientation.y = pose.qRotation.y;
+                effectiveHeadMotion.pose.orientation.z = pose.qRotation.z;
+                
+                effectiveHeadMotion.pose.position[0] = pose.vecPosition[0];
+                effectiveHeadMotion.pose.position[1] = pose.vecPosition[1];
+                effectiveHeadMotion.pose.position[2] = pose.vecPosition[2];
+                
+                effectiveHeadMotion.linearVelocity[0] = pose.vecVelocity[0];
+                effectiveHeadMotion.linearVelocity[1] = pose.vecVelocity[1];
+                effectiveHeadMotion.linearVelocity[2] = pose.vecVelocity[2];
+                
+                effectiveHeadMotion.angularVelocity[0] = pose.vecAngularVelocity[0];
+                effectiveHeadMotion.angularVelocity[1] = pose.vecAngularVelocity[1];
+                effectiveHeadMotion.angularVelocity[2] = pose.vecAngularVelocity[2];
+            } else if (!s_trackingOverride.loggedWarning && s_trackingOverride.overrideDevice) {
+                Warn("Tracking override device not tracking, using headset\n");
+                s_trackingOverride.loggedWarning = true;
+            }
+        } else {
+            if (s_trackingOverride.overrideDevice) {
+                Info("Headset tracking override disabled\n");
+                s_trackingOverride = {};
+            }
+        }
+        
+        g_driver_provider.hmd->OnPoseUpdated(targetTimestampNs, effectiveHeadMotion);
     }
 
     if (g_driver_provider.left_hand_tracker) {
