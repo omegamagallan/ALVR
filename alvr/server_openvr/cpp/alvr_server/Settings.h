@@ -86,6 +86,8 @@ public:
     bool m_enableLinuxVulkanAsyncCompute;
     bool m_enableLinuxAsyncReprojection;
 
+    std::string m_headTrackingOverrideDeviceSerial = "";
+
     bool m_enableControllers;
     int m_controllerIsTracker = false;
     int m_enableBodyTrackingFakeVive = false;

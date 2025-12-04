@@ -160,6 +160,7 @@ pub fn contruct_openvr_config(session: &SessionConfig) -> OpenvrConfig {
     OpenvrConfig {
         tracking_ref_only: settings.headset.tracking_ref_only,
         enable_vive_tracker_proxy: settings.headset.enable_vive_tracker_proxy,
+        head_tracking_override_device_serial: settings.headset.head_tracking_override_device_serial.clone(),
         minimum_idr_interval_ms: settings.connection.minimum_idr_interval_ms,
         adapter_index: settings.video.adapter_index,
         codec: settings.video.preferred_codec as _,

@@ -21,13 +21,13 @@ public:
 
     bool register_device(bool await_activation);
     void set_prop(FfiOpenvrProperty prop);
+    std::string get_serial_number();
 
 protected:
     uint64_t device_id;
     vr::ETrackedDeviceClass device_class;
 
     TrackedDevice(uint64_t device_id, vr::ETrackedDeviceClass device_class);
-    std::string get_serial_number();
     void submit_pose(vr::DriverPose_t pose);
     virtual bool activate() = 0;
     virtual void* get_component(const char*) = 0;
